@@ -283,7 +283,7 @@ class Package extends CommonDBTM
                 KEY `entities_id` (`entities_id`),
                 KEY `is_recursive` (`is_recursive`)
             ) ENGINE=InnoDB DEFAULT CHARSET={$default_charset} COLLATE={$default_collation} ROW_FORMAT=DYNAMIC;";
-            $DB->query($query) or die($DB->error());
+            $DB->request($query) or die($DB->error());
         }
 
         // add display preferences
@@ -314,6 +314,6 @@ class Package extends CommonDBTM
         $migration->displayMessage("Uninstalling $table");
         $migration->dropTable($table);
 
-        $DB->query("DELETE FROM `glpi_displaypreferences` WHERE `itemtype` = '" . self::getType() . "'");
+        $DB->request("DELETE FROM `glpi_displaypreferences` WHERE `itemtype` = '" . self::getType() . "'");
     }
 }

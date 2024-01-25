@@ -29,7 +29,7 @@
  */
 
 use Glpi\Event;
-use GlpiPlugin\Deploy\Computer_Group;
+use GlpiPlugin\Deploy\ComputerGroup;
 use GlpiPlugin\Deploy\Computer_Group_Dynamic;
 use GlpiPlugin\Deploy\Computer_Group_Static;
 
@@ -45,7 +45,7 @@ if (!isset($_GET["withtemplate"])) {
    $_GET["withtemplate"] = "";
 }
 
-$computergroup = new Computer_Group();
+$computergroup = new ComputerGroup();
 $computergroupstatic = new Computer_Group_Static();
 $computergroup_dynamic = new Computer_Group_Dynamic();
 
@@ -53,7 +53,7 @@ $computergroup_dynamic = new Computer_Group_Dynamic();
 if (isset($_POST["add"])) {
    $computergroup->check(-1, CREATE, $_POST);
    if ($newID = $computergroup->add($_POST)) {
-      Event::log($newID, "Computer_Group", 4, "inventory",
+      Event::log($newID, "ComputerGroup", 4, "inventory",
                  sprintf(__('%1$s adds the item %2$s'), $_SESSION["glpiname"], $_POST["name"]));
 
       if ($_SESSION['glpibackcreated']) {
@@ -86,7 +86,7 @@ if (isset($_POST["add"])) {
 } else if (isset($_POST["purge"])) {
    $computergroup->check($_POST['id'], PURGE);
    if ($computergroup->delete($_POST, 1)) {
-      Event::log($_POST["id"], "Computer_Group", 4, "inventory",
+      Event::log($_POST["id"], "ComputerGroup", 4, "inventory",
                  //TRANS: %s is the user login
                  sprintf(__('%s purges an item'), $_SESSION["glpiname"]));
    }
@@ -96,7 +96,7 @@ if (isset($_POST["add"])) {
 } else if (isset($_POST["update"])) {
    $computergroup->check($_POST['id'], UPDATE);
    $computergroup->update($_POST);
-   Event::log($_POST["id"], "Computer_Group", 4, "inventory",
+   Event::log($_POST["id"], "ComputerGroup", 4, "inventory",
               //TRANS: %s is the user login
               sprintf(__('%s updates an item'), $_SESSION["glpiname"]));
    Html::back();
@@ -124,7 +124,7 @@ if (isset($_POST["add"])) {
 
 
    Html::header(
-      Computer_Group::getTypeName(Session::getPluralNumber()),
+      ComputerGroup::getTypeName(Session::getPluralNumber()),
       '',
       'tools',
       'glpiplugin\deploy\menu',

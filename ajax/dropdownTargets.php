@@ -30,8 +30,7 @@
 
 // there is no called form here, and as we require another ajax file,
 // we have a double define
-define('GLPI_USE_CSRF_CHECK', 0);
-include ("../../../inc/includes.php");
+include("../../../inc/includes.php");
 
 switch ($_POST["idtable"]) {
     case 'Computer':

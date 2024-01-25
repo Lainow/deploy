@@ -48,8 +48,8 @@ class Profile extends GlobalProfile {
 
    static function getAllRights($all = false) {
       $rights = [
-         ['itemtype' => Computer_Group::getType(),
-               'label'    => Computer_Group::getTypeName(),
+         ['itemtype' => ComputerGroup::getType(),
+               'label'    => ComputerGroup::getTypeName(),
                'field'    => 'computer_group'
          ]
       ];

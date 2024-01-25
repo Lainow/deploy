@@ -56,8 +56,8 @@ class Menu
                 Package::class,
             ];
 
-            if (Computer_Group::canCreate()) {
-                $links_class[] = Computer_Group::class;
+            if (ComputerGroup::canCreate()) {
+                $links_class[] = ComputerGroup::class;
             }
 
             $links = [];
@@ -99,19 +99,18 @@ class Menu
                 $menu['options']['task']['links']['add']   = Task::getFormURL(false);
             }
 
-            if (Computer_Group::canCreate()) {
+            if (ComputerGroup::canCreate()) {
                 $menu['options']['computer_group'] = [
-                    'title' => Computer_Group::getTypeName(Session::getPluralNumber()),
-                    'page'  => Computer_Group::getSearchURL(false),
-                    'icon'  => Computer_Group::getIcon(),
+                    'title' => ComputerGroup::getTypeName(Session::getPluralNumber()),
+                    'page'  => ComputerGroup::getSearchURL(false),
+                    'icon'  => ComputerGroup::getIcon(),
                     'links' => $links,
                 ];
 
-                $add_link = Computer_Group::getFormURL(false);
-                $menu['options']['computer_group']['options']['add'] = Computer_Group::getFormURL(false);
-                $menu['options']['computer_group']['links']['add']   = Computer_Group::getFormURL(false);
+                $add_link = ComputerGroup::getFormURL(false);
+                $menu['options']['computer_group']['options']['add'] = ComputerGroup::getFormURL(false);
+                $menu['options']['computer_group']['links']['add']   = ComputerGroup::getFormURL(false);
             }
-
         }
 
         if (count($menu)) {

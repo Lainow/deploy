@@ -28,20 +28,20 @@
  * -------------------------------------------------------------------------
  */
 
-use GlpiPlugin\Deploy\Computer_Group;
+use GlpiPlugin\Deploy\ComputerGroup;
 
 include ('../../../inc/includes.php');
 
 Session::checkRight("computer_group", UPDATE);
 
 Html::header(
-    Computer_Group::getTypeName(Session::getPluralNumber()),
+    ComputerGroup::getTypeName(Session::getPluralNumber()),
     '',
     'tools',
     'glpiplugin\deploy\menu',
     'computer_group'
 );
 
-Search::show('GlpiPlugin\Deploy\Computer_Group');
+Search::show('GlpiPlugin\Deploy\ComputerGroup');
 
 Html::footer();
