@@ -26,6 +26,6 @@
          ''
       ) }}
    </div>
-   
+   <input type="hidden" name="_glpi_csrf_token" value="{{ csrf_token() }}" />
    <input type="hidden" name="plugin_deploy_computers_groups_id" value="{{ computers_groups_id }}" />
 </form>

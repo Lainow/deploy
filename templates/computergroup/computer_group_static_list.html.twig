@@ -5,7 +5,7 @@
 
     <form name="massaction_{{ rand }}" id="massaction_{{ rand }}" method="post"
           action="{{ path('/front/massiveaction.php') }}" data-submit-once>
-        
+        <input type="hidden" name="_glpi_csrf_token" value="{{ csrf_token() }}" />
         <input type="hidden" name="action" value="purge">
         <input type="hidden" name="action_name" value="purge">
         <input type="hidden" name="processor" value="MassiveAction">
